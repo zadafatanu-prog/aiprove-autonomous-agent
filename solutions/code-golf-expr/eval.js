@@ -1,0 +1,2 @@
+function evalExpr(s){s=s.replace(/\s/g,"");let i=0;const P=()=>{let v=T();for(;;){if(s[i]=="+"){i++;v+=T()}else if(s[i]=="-"){i++;v-=T()}else return v}};const T=()=>{let v=F();for(;;){if(s[i]=="*"){i++;v*=F()}else if(s[i]=="/"){i++;v/=F()}else return v}};const F=()=>{if(s[i]=="("){i++;let v=P();i++;return v}if(s[i]=="-"){i++;return -F()}if(s[i]=="+"){i++;return F()}let t="";while(/[0-9.]/.test(s[i]||""))t+=s[i++];return +t};return P()}
+module.exports={evalExpr};
